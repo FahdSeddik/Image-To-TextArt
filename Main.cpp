@@ -30,12 +30,12 @@ void main() {
 	}
 	cout << "Enter image file path (add file extension) :";
 	string imgname;
-	cin >> imgname;
+	getline(cin, imgname, '\n');
 	cout << "Enter output txt file path (add .txt at the end): ";
 	string of;
-	cin >> of;
-	float Scale = 400;
-	cout << "Enter Scale (100 low quality - 400 high quality): ";
+	getline(cin, of, '\n');
+	float Scale = 1;
+	cout << "Enter Scale (1 low quality - 4 high quality): ";
 	cin >> Scale;
 	Mat img = imread(imgname);
 	ofstream ofile;
@@ -46,9 +46,12 @@ void main() {
 	Mat imgBW,imgC;
 	cvtColor(img, imgBW, COLOR_BGR2GRAY);
 	imgBW.convertTo(imgC, -1, c, 0);
-	int incr = (float)img.rows / img.cols * Scale * 0.5;
-	int incc = (float)img.rows / img.cols * Scale;
 	
+	int incr, incc;
+	
+	incr = 50 * Scale;
+	incc = incr * 2 * (float)img.cols / img.rows;
+
 	for (int r = 0; r < imgC.rows; r+=img.rows/incr) {
 		for (int c = 0; c < imgC.cols; c+=img.cols/incc) {
 			if (imgC.at<uint8_t>(r, c) == 255) {
@@ -65,6 +68,11 @@ void main() {
 		}
 		ofile << endl;
 	}
-	imshow("original", imgC);
+	Mat res;
+	if (img.cols > 900)
+		resize(imgC, res, Size((float)img.cols / img.rows * 400, 400), INTER_LINEAR);
+	else
+		res = imgC;
+	imshow("BW with contrast", res);
 	waitKey(0);
 }
