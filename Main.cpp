@@ -24,10 +24,7 @@ void main() {
 		ifile >> x >> x;
 		grey_value.push_back(x);
 	}
-	float max = *max_element(grey_value.begin(), grey_value.end());
-	for (int i = 0; i < (126 - 33 + 1); i++) {
-		grey_value[i] = 255 - grey_value[i] / max * 255;
-	}
+	
 	cout << "Enter image file path (add file extension) :";
 	string imgname;
 	getline(cin, imgname, '\n');
