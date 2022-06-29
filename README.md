@@ -1,7 +1,7 @@
 # Image-To-TextArt
  C++ program that converts an image into ASCII characters written in a .txt file.
 
-Written using OpenCV. Check out ![Video-to-ASCII-on-Console] ]https://github.com/FahdSeddik/Video-to-ASCII-on-Console project that follows from this one.
+Written using OpenCV. Check out ![Video-to-ASCII-on-Console] https://github.com/FahdSeddik/Video-to-ASCII-on-Console project that follows from this one.
 
 ## Examples
 ![](https://github.com/FahdSeddik/Image-To-TextArt/blob/main/Screenshots/1.png)  
