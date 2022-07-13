@@ -22,3 +22,5 @@ Program and file can be found in ASCII VALUES folder
 To read the given image and the values text file then assign each set of pixels a specific ASCII character  
 that is then written in an output file.  
 
+## License
+[MIT License](https://github.com/FahdSeddik/Image-To-TextArt/blob/main/LICENSE)
